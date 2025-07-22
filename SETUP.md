@@ -52,5 +52,3 @@ See dokument sisaldab sammhaaval juhiseid ATL päevamõtete Discord boti seadist
 - [ ] GitHub Actions päevane ajastus
 
 ---
-
-*Viimati uuendatud: 22.07.2025*
