@@ -13,9 +13,11 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 - **Hõlmas:** Discord seadistamine, webhook loomine/testimine, GitHub secret, test workflow
 - **Staatus:** Lõpetatud
 
-#### Issue #2: 🔑 Google Drive API seadistamine ⏳
+#### Issue #2: 🔑 Google Drive API seadistamine ✅
 - **Hinnang:** 30-45 minutit
-- **Staatus:** Ootel
+- **Tegelik aeg:** 43 minutit (19:16-19:59)
+- **Hõlmas:** Google Cloud projekt, Drive API, Service Account, JSON credentials, GitHub secret, testimine
+- **Staatus:** Lõpetatud
 
 #### Issue #3: 🐍 Põhiline skripti struktuur ⏳
 - **Hinnang:** 1-2 tundi
@@ -70,13 +72,14 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 
 ### Implementeerimisfaas
 - **Kokku hinnang:** 6-12 tundi (9 issue'st)
-- **Lõpetatud:** 1/9 issue (20 min)
-- **Järelejäänud:** 8 issue (~6-11 tundi)
+- **Lõpetatud:** 2/9 issue (63 min kokku)
+- **Järelejäänud:** 7 issue (~5-10 tundi)
 
 ## 📊 Analüüs
 
 ### Täpsused/Üllatused
-- **Issue #1:** Algne hinnang 2-4h etapi jaoks, tegelik 20 min esimese issue jaoks
+- **Issue #1:** Tegelik 20 min vs hinnang oli etapi jaoks 2-4h
+- **Issue #2:** Tegelik 43 min vs hinnang 30-45 min ✅ (täpne!)
 - **Planeerimine:** 2h oli väärtuslik investeering
 
 ### Õppetunnid

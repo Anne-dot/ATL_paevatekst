@@ -22,17 +22,34 @@ This project automates the daily posting of meditation content to help support t
 3. Ensure reliable delivery of both text and audio content
 4. Support the recovery journey of ACA members through regular spiritual practice
 
-## Implementation Options
+## Chosen Architecture
 
-The system can be implemented using various approaches:
-- **Discord Bot**: Custom bot with scheduled tasks
-- **Webhook Integration**: Using Discord webhooks with a scheduler
-- **Cloud Functions**: Serverless approach for cost-effective automation
-- **Self-hosted Solution**: Running on a personal server or Raspberry Pi
+**Final Implementation:**
+- **✅ Discord Webhook**: Simple posting mechanism (KISS principle)
+- **✅ GitHub Actions**: Cloud-based scheduling and execution
+- **✅ Google Drive API**: Direct access to ATL meditation documents
+- **✅ Hardcoded URLs**: 12 monthly document URLs for reliability
+
+See [discordi_päevatekstide_automaatse_postitamise_plaan.md](discordi_päevatekstide_automaatse_postitamise_plaan.md) for detailed planning decisions.
 
 ## Getting Started
 
-(Implementation details to be added based on chosen approach)
+See [SETUP.md](SETUP.md) for detailed setup instructions.
+
+## Current Status
+
+**✅ Completed:**
+- Discord webhook setup and testing
+- Google Drive API connection established
+- GitHub secrets configured
+- Service account has access to ATL meditation documents
+
+**🔄 In Progress:**
+- Python script development
+- Text parsing logic
+- GitHub Actions automation
+
+**Progress:** 2/9 issues completed (22%)
 
 ## Contributing
 
