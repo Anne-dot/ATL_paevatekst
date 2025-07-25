@@ -16,19 +16,31 @@ from config import DRIVE_SCOPES, get_current_month_doc_id
 
 def create_google_drive_service():
     """Create Google Drive API service with authentication"""
-    # Auto-find JSON credentials file
-    json_file = None
-    for file in os.listdir('.'):
-        if file.startswith('atl-paevamotted-') and file.endswith('.json'):
-            json_file = file
-            break
     
-    if not json_file:
-        raise ValueError("Google credentials JSON file not found (atl-paevamotted-*.json)")
-    
-    credentials = service_account.Credentials.from_service_account_file(
-        json_file, scopes=DRIVE_SCOPES
-    )
+    # Try environment variable first (GitHub Actions)
+    google_creds_env = os.getenv('GOOGLE_CREDENTIALS')
+    if google_creds_env:
+        print("🔑 Using GOOGLE_CREDENTIALS environment variable")
+        credentials_info = json.loads(google_creds_env)
+        credentials = service_account.Credentials.from_service_account_info(
+            credentials_info, scopes=DRIVE_SCOPES
+        )
+    else:
+        # Fall back to auto-find JSON file (local development)
+        print("🔍 Looking for local JSON credentials file...")
+        json_file = None
+        for file in os.listdir('.'):
+            if file.startswith('atl-paevamotted-') and file.endswith('.json'):
+                json_file = file
+                break
+        
+        if not json_file:
+            raise ValueError("No authentication found: set GOOGLE_CREDENTIALS env var or place atl-paevamotted-*.json file in directory")
+        
+        print(f"🔑 Using local JSON file: {json_file}")
+        credentials = service_account.Credentials.from_service_account_file(
+            json_file, scopes=DRIVE_SCOPES
+        )
     
     service = build('drive', 'v3', credentials=credentials)
     print("✅ Google Drive API service created")
