@@ -19,22 +19,26 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 - **Hõlmas:** Google Cloud projekt, Drive API, Service Account, JSON credentials, GitHub secret, testimine
 - **Staatus:** Lõpetatud
 
-#### Issue #3: 🐍 Põhiline skripti struktuur ⏳
-- **Hinnang:** 1-2 tundi
-- **Staatus:** Ootel
+#### Issue #3: 🐍 Põhiline skripti struktuur ✅
+- **Hinnang:** 1-2 tundi  
+- **Tegelik aeg:** ~100 minutit (+ Issues #4,#5 integreeritud)
+- **Hõlmas:** 5 modular Python faili, täielik töötav süsteem, Discord testimine
+- **Staatus:** Lõpetatud
 
 **Etapi hinnang:** 2-4 tundi
 
 ### Etapp 2: Põhiarendus
 **Issues:** #4, #5
 
-#### Issue #4: 📝 Teksti töötluse loogika ⏳
+#### Issue #4: 📝 Teksti töötluse loogika ✅
 - **Hinnang:** 45-90 minutit
-- **Staatus:** Ootel
+- **Tegelik aeg:** Integreeritud Issue #3-ga
+- **Staatus:** Lõpetatud (date_utils.py)
 
-#### Issue #5: 📅 Kuu/kuupäeva loogika ⏳
+#### Issue #5: 📅 Kuu/kuupäeva loogika ✅
 - **Hinnang:** 30-60 minutit
-- **Staatus:** Ootel
+- **Tegelik aeg:** Integreeritud Issue #3-ga
+- **Staatus:** Lõpetatud (config.py, date_utils.py)
 
 **Etapi hinnang:** 2-3 tundi
 
@@ -72,15 +76,17 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 
 ### Implementeerimisfaas
 - **Kokku hinnang:** 6-12 tundi (9 issue'st)
-- **Lõpetatud:** 2/9 issue (63 min kokku)
-- **Järelejäänud:** 7 issue (~5-10 tundi)
+- **Lõpetatud:** 5/9 issue (163 min kokku)
+- **Järelejäänud:** 4 issue (~3-7 tundi)
 
 ## 📊 Analüüs
 
 ### Täpsused/Üllatused
 - **Issue #1:** Tegelik 20 min vs hinnang oli etapi jaoks 2-4h
 - **Issue #2:** Tegelik 43 min vs hinnang 30-45 min ✅ (täpne!)
+- **Issue #3:** Tegelik 100 min vs hinnang 1-2h ✅ (hinnangus)
 - **Planeerimine:** 2h oli väärtuslik investeering
+- **Etapp 1:** Tegelik 163 min vs hinnang 2-4h ✅ (täpne!)
 
 ### Õppetunnid
 - Põhjalik planeerimine kiirendab implementeerimist märgatavalt

@@ -1,0 +1,14 @@
+# ATL Päevamõtete Bot Dependencies
+
+# Google Drive API
+google-api-python-client>=2.0.0
+google-auth>=2.0.0
+
+# Discord webhook posting
+requests>=2.28.0
+
+# Environment variables from .env file
+python-dotenv>=0.19.0
+
+# Date and timezone handling (Python 3.9+ built-in)
+# zoneinfo - built into Python 3.9+
