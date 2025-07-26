@@ -23,16 +23,18 @@ def create_heading_pattern_for_today():
     return pattern
 
 def find_todays_meditation_text(document_content):
-    """Extract today's meditation text from document content"""
+    """Extract today's meditation text from document content with formatting"""
     lines = document_content.split('\n')
     heading_pattern = create_heading_pattern_for_today()
     
     # Find the line with today's heading
     start_line = None
+    heading_line = None
     for i, line in enumerate(lines):
         if re.match(heading_pattern, line.strip()):
             start_line = i
-            print(f"✅ Found today's heading at line {i + 1}: {line.strip()}")
+            heading_line = line.strip()
+            print(f"✅ Found today's heading at line {i + 1}: {heading_line}")
             break
     
     if start_line is None:
@@ -41,6 +43,7 @@ def find_todays_meditation_text(document_content):
     
     # Collect text until next heading (## XX) or end of document
     meditation_lines = []
+    
     for i in range(start_line + 1, len(lines)):
         line = lines[i].strip()
         
@@ -49,18 +52,40 @@ def find_todays_meditation_text(document_content):
             print(f"📄 Found next heading at line {i + 1}, stopping collection")
             break
         
-        # Add non-empty lines to meditation text
-        if line:
-            meditation_lines.append(line)
+        # Add line to meditation text (keep empty lines for paragraph breaks)
+        meditation_lines.append(line)
     
     if not meditation_lines:
         raise ValueError("No meditation text found after today's heading")
     
-    # Join lines with newlines
-    meditation_text = '\n'.join(meditation_lines)
-    print(f"✅ Extracted meditation text ({len(meditation_text)} characters)")
+    # Remove leading/trailing empty lines
+    while meditation_lines and not meditation_lines[0]:
+        meditation_lines.pop(0)
+    while meditation_lines and not meditation_lines[-1]:
+        meditation_lines.pop()
     
-    return meditation_text
+    # Format first line (title) as bold, rest as normal
+    if meditation_lines:
+        # First non-empty line becomes the title
+        title = f"**{meditation_lines[0]}**"
+        content_lines = meditation_lines[1:]
+        
+        # Join content with preserved line breaks
+        raw_content = '\n'.join(content_lines)
+        # Keep document structure as-is, just clean up multiple newlines
+        formatted_content = re.sub(r'\n\s*\n', '\n\n', raw_content)
+        
+        # Format with Discord markdown
+        formatted_date = f"📅 **{heading_line}**"
+        formatted_text = f"{formatted_date}\n\n{title}\n\n{formatted_content}"
+    else:
+        # Fallback if no content
+        formatted_date = f"📅 **{heading_line}**"
+        formatted_text = formatted_date
+    
+    print(f"✅ Extracted and formatted meditation text ({len(formatted_text)} characters)")
+    
+    return formatted_text
 
 def get_todays_meditation_from_document(document_content):
     """Get today's complete meditation text from document"""

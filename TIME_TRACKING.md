@@ -45,22 +45,30 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 ### Etapp 3: GitHub Actions integratsioon
 **Issues:** #6, #7
 
-#### Issue #6: ⚙️ GitHub Actions töövoo loomine ⏳
+#### Issue #6: ⚙️ GitHub Actions töövoo loomine ✅
 - **Hinnang:** 45-90 minutit
-- **Staatus:** Ootel
+- **Tegelik aeg:** 60 minutit
+- **Hõlmas:** Drive client dual authentication, GitHub Actions workflow parandamine, testimine
+- **Staatus:** Lõpetatud
 
-#### Issue #7: 🔧 Keskkonnamuutujad ja secrets ⏳
+#### Issue #7: 🔧 Keskkonnamuutujad ja secrets ✅
 - **Hinnang:** 30-45 minutit
-- **Staatus:** Ootel
+- **Tegelik aeg:** 8 minutit
+- **Hõlmas:** Secrets kontrollimine, dokumentatsiooni lisamine README-sse, Issue kommentimine
+- **Märkus:** Enamik tööst oli juba tehtud Issue #6 käigus
+- **Staatus:** Lõpetatud
 
 **Etapi hinnang:** 1-2 tundi
 
 ### Etapp 4: Dokumentatsioon ja üleandmine
 **Issues:** #8, #9
 
-#### Issue #8: 📚 Tehniline dokumentatsioon ⏳
+#### Issue #8: 📚 Tehniline dokumentatsioon ✅
 - **Hinnang:** 1-2 tundi
-- **Staatus:** Ootel
+- **Tegelik aeg:** 20 minutit
+- **Hõlmas:** TROUBLESHOOTING.md, HANDOVER.md loomine, SETUP.md ja README.md uuendamine
+- **Märkus:** Efektiivsem kui oodatud - kasutasin olemasolevat teavet
+- **Staatus:** Lõpetatud
 
 #### Issue #9: 🧪 Testimine päris andmetega ⏳
 - **Hinnang:** 1-2 tundi
@@ -76,8 +84,8 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 
 ### Implementeerimisfaas
 - **Kokku hinnang:** 6-12 tundi (9 issue'st)
-- **Lõpetatud:** 5/9 issue (163 min kokku)
-- **Järelejäänud:** 4 issue (~3-7 tundi)
+- **Lõpetatud:** 8/10 issue (251 min kokku)
+- **Järelejäänud:** 2 issue (#9, #10)
 
 ## 📊 Analüüs
 
