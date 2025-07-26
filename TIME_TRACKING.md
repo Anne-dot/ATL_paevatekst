@@ -74,6 +74,12 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 - **Hinnang:** 1-2 tundi
 - **Staatus:** Ootel
 
+#### Issue #10: Postitatud tekst vajab formattimist ✅
+- **Hinnang:** Pole hinnatud (bug)
+- **Tegelik aeg:** 15 minutit
+- **Hõlmas:** Discord markdown formateerimine (kuupäev + pealkiri bold), struktuuri säilitamine
+- **Staatus:** Lõpetatud
+
 **Etapi hinnang:** 1-3 tundi
 
 ## 📈 Projekti kokkuvõte
@@ -84,8 +90,8 @@ See dokument jälgib projekti ajakulu analüüsi ja hindamise jaoks.
 
 ### Implementeerimisfaas
 - **Kokku hinnang:** 6-12 tundi (9 issue'st)
-- **Lõpetatud:** 8/10 issue (251 min kokku)
-- **Järelejäänud:** 2 issue (#9, #10)
+- **Lõpetatud:** 9/10 issue (266 min kokku)
+- **Järelejäänud:** 1 issue (#9)
 
 ## 📊 Analüüs
 

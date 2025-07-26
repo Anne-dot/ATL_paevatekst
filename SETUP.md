@@ -8,32 +8,51 @@ See dokument sisaldab sammhaaval juhiseid ATL päevamõtete Discord boti seadist
 ## ✅ 1. Discord Webhook Seadistamine
 
 ### 📝 Sammud
+
+#### 🚀 Produktsiooni webhook (praegune)
+1. **🔗 Loo webhook päris kanali jaoks**
+   - Server Settings → Integrations → Webhooks
+   - "Create Webhook" → Nimi: "ATL päevamõtted"
+   - Vali ATL päevamõtete kanal
+   - Kopeeri webhook URL
+
+2. **🔐 Salvesta GitHub secret'ina**
+   ```bash
+   gh secret set DISCORD_WEBHOOK_URL --body "WEBHOOK_URL"
+   ```
+
+3. **✅ Testi GitHub Actions'iga**
+   ```bash
+   gh workflow run daily-meditation.yml
+   ```
+
+#### 🧪 Testimise webhook (tulevikuks)
+<!--
+MÄRKUS: Testimiseks loo eraldi privaatne kanal ja webhook
+
 1. **🔒 Loo privaatne testimiskanal**
    - Discord serveris: loo uus kanal (nt #bot-test-privaatne)
    - Edit Channel → Permissions → @everyone → View Channel: ❌
    - Ainult sina näed seda kanalit
 
-2. **🔗 Loo webhook**
+2. **🔗 Loo test webhook**
    - Server Settings → Integrations → Webhooks
-   - "Create Webhook" → Nimi: "ATL päevamõtted"
+   - "Create Webhook" → Nimi: "ATL test bot"
    - Vali privaatne testimiskanal
-   - Kopeeri webhook URL
+   - Kopeeri test webhook URL
 
-3. **🧪 Testi webhook'i käsurealt**
+3. **🧪 Testi käsurealt**
    ```bash
-   curl -X POST "WEBHOOK_URL" \
+   curl -X POST "TEST_WEBHOOK_URL" \
      -H "Content-Type: application/json" \
      -d '{"content": "🧪 Test post - ATL päevamõtete bot testimine"}'
    ```
 
-4. **🔐 Salvesta GitHub secret'ina**
+4. **🔄 Vaheta testimiseks**
    ```bash
-   gh secret set DISCORD_WEBHOOK_URL --body "WEBHOOK_URL"
+   gh secret set DISCORD_WEBHOOK_URL --body "TEST_WEBHOOK_URL"
    ```
-
-5. **✅ Testi GitHub Actions'iga**
-   - Käivita manual workflow: "Test Discord Webhook Secret"
-   - Peaksid nägema uut sõnumit Discord kanalises
+-->
 
 ### ⏱️ Ajakulu
 ~20 minutit
