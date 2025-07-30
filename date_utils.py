@@ -47,9 +47,10 @@ def find_todays_meditation_text(document_content):
     for i in range(start_line + 1, len(lines)):
         line = lines[i].strip()
         
-        # Stop if we hit another heading
-        if re.match(r"^\d+[\.\s]", line):
-            print(f"📄 Found next heading at line {i + 1}, stopping collection")
+        # Stop if we hit another date heading (day + month name)
+        date_heading_pattern = r"^\d{1,2}\.\s*(?:jaanuar|veebruar|märts|aprill|mai|juuni|juuli|august|september|oktoober|november|detsember)"
+        if re.match(date_heading_pattern, line, re.IGNORECASE):
+            print(f"📄 Found next date heading at line {i + 1}, stopping collection")
             break
         
         # Add line to meditation text (keep empty lines for paragraph breaks)
