@@ -164,6 +164,11 @@ await Promise.all(
 - **One config file** for all settings
 - **One place** for each piece of business logic
 - **Centralized state** management
+- **IMPORTANT:** This applies to DOCUMENTATION too!
+  - Don't duplicate guidelines across multiple files
+  - Reference other documents instead of repeating
+  - Keep one authoritative source for each concept
+  - Example: AI response format rules → AI_COLLABORATION_GUIDE.md
 
 ```javascript
 // config.js - Single source for all configuration

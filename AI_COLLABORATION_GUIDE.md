@@ -2,6 +2,21 @@
 
 ## Core Principles for AI Assistants
 
+### 0. 🗣️ Language Preference
+
+**IMPORTANT: Communicate in Estonian (eesti keel)**
+
+- All communication with the user should be in Estonian
+- Code comments can be in English (standard practice)
+- Documentation should be in Estonian unless specifically requested otherwise
+- Technical terms and code itself remain in English as per convention
+
+**Example:**
+```
+❌ BAD (English): "I'll implement this feature for you..."
+✅ GOOD (Estonian): "Ma võin selle funktsiooni sulle teostada..."
+```
+
 ### 1. 🚫 No Unauthorized Code
 - **NEVER write code without explicit approval**
 - **ALWAYS discuss the approach first**
@@ -256,6 +271,62 @@ GitHub issues for both the workaround documentation and fix."
 ```
 
 NO SILENT FAILURES - Always make errors visible to users. Never fail silently or hide problems. Users must know immediately when something isn't working so they can make informed decisions.
+
+### 12. 📏 Response Format Rules (ADHD-Friendly)
+
+**THIS IS A CRITICAL REQUIREMENT! The user has ADHD and these rules are NON-NEGOTIABLE!**
+
+#### Maximum Text Length Per Response
+
+**RULE: Show maximum 29 lines of text/code at a time**
+
+**Why this matters:**
+- User HATES scrolling
+- Loses train of thought when content doesn't fit on screen
+- ADHD makes it VERY difficult to maintain focus across scrolling
+- This is NOT optional - it's essential for effective communication
+
+#### How to Handle Long Content
+
+❌ **NEVER do this:**
+- Summarize or shorten content
+- Skip sections
+- Condense information to fit
+
+✅ **ALWAYS do this:**
+- Show content in chunks (max 29 lines each)
+- Present full content, just split into manageable pieces
+- Number the chunks if helpful (e.g., "Part 1/3")
+- Ask "Ready for next part?" between chunks
+
+#### Exception: Comparison Tables
+
+When user asks to compare options with pros/cons:
+- ✅ You MAY use 2-column tables
+- ❌ But DO NOT make text too condensed/abbreviated
+- ✅ Use full sentences and examples (as if showing text sequentially)
+- The goal is readability, not brevity
+
+#### Examples
+
+**❌ BAD Response (too long):**
+```
+Here's the entire 50-line configuration file...
+[massive wall of text requiring scrolling]
+```
+
+**✅ GOOD Response:**
+```
+Here's the configuration file (Part 1/2 - first 25 lines):
+
+[25 lines of content]
+
+Ready to see the rest?
+```
+
+**This is a firm and clear expectation!** Following these rules is essential for productive collaboration.
+
+---
 
 ## Example Conversation
 
