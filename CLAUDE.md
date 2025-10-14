@@ -6,7 +6,7 @@ This document serves as the main reference hub for Claude AI collaboration on th
 
 ### Core Collaboration
 - **[AI_COLLABORATION_GUIDE.md](AI_COLLABORATION_GUIDE.md)** - Working style, approval processes, and communication protocols
-- **[CODING_PRINCIPLES.md](CODING_PRINCIPLES.md)** - Development philosophy, technical standards, and code quality guidelines
+- **[~/.claude/instructions.md](~/.claude/instructions.md)** - Development philosophy, technical standards, and code quality guidelines (Section 3 and 6)
 
 ### Project Context
 - **[PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)** - Estonian ACA meditation bot specific information and requirements

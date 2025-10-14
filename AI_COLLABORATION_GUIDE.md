@@ -378,4 +378,4 @@ This guide ensures AI assistants collaborate effectively while respecting user c
 
 ## Related Documentation
 
-- **[CODING_PRINCIPLES.md](CODING_PRINCIPLES.md)** - ADHD-friendly development principles that apply to both code and documentation
+- **[~/.claude/instructions.md](~/.claude/instructions.md)** - ADHD-friendly development principles (see Section 3 and 6 for coding standards)
