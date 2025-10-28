@@ -28,7 +28,8 @@ jobs:
     
     - name: Post daily meditation
       env:
-        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        # Automaatne valik: schedule → production, workflow_dispatch → test
+        DISCORD_WEBHOOK_URL: ${{ github.event_name == 'schedule' && secrets.DISCORD_WEBHOOK_URL || secrets.DISCORD_WEBHOOK_TEST_URL }}
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       run: |
         python main.py
