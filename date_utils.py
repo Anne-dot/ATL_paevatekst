@@ -77,9 +77,9 @@ def find_todays_meditation_text(document_content):
 
         # Join content with preserved line breaks
         raw_content = '\n'.join(content_lines)
-        # Add blank line between all paragraphs for better Discord readability
-        # Replace single newlines with double newlines (adds blank line between paragraphs)
-        formatted_content = raw_content.replace('\n', '\n\n')
+        # Normalize all paragraph breaks to exactly 1 blank line for Discord readability
+        # Replace any sequence of 1+ newlines with exactly 2 newlines (1 blank line)
+        formatted_content = re.sub(r'\n+', '\n\n', raw_content)
 
         # Format with Discord markdown
         # Structure: date, title, 1 blank line, content
