@@ -25,17 +25,21 @@
    - Anna "Admin" õigused
    
 2. **Secrets kontroll**
-   - `DISCORD_WEBHOOK_URL` ✅
-   - `GOOGLE_CREDENTIALS` ✅
+   - `DISCORD_WEBHOOK_URL` ✅ (tootmise kanal)
+   - `DISCORD_WEBHOOK_TEST_URL` ✅ (testikanal)
+   - `GOOGLE_CREDENTIALS` ✅ (Google Drive API)
 
 ### 💬 Discord Ligipääs
 1. **Discord admin õigused vajalikud**
    - Uus isik peab saama Discord serveri admin õigused
    - **VÕI** olemasolev admin peab tema eest webhook'e haldama
-   
+
 2. **Kanalid**
-   - Praegune kanal: (täpsusta kanal)
-   - **🚨 PUUDUB: Privaatne veateadete kanal admin'ile**
+   - **Tootmise kanal:** ATL päevamõtete kanal (webhook: `DISCORD_WEBHOOK_URL`)
+   - **Testikanal:** Privaatne testimiskanal (webhook: `DISCORD_WEBHOOK_TEST_URL`)
+   - **Automaatne valik:** Workflow tuvastab event tüübi ja valib õige webhoki
+     - `schedule` (cron 6:00) → tootmise kanal
+     - `workflow_dispatch` (käsitsi) → testikanal
 
 ---
 
@@ -89,7 +93,9 @@ ATL_paevatekst/
 
 ### Kuine
 - **Kontrolli:** Kas uue kuu dokument on õigesti seadistatud
-- **Test:** Käivita workflow käsitsi: `gh workflow run daily-meditation.yml`
+- **Test:** Käivita workflow käsitsi GitHubis (Actions → "Run workflow")
+  - Postitus läheb automaatselt **testikanali** ✅
+  - Kontrollid tänast kuupäeva ja uue kuu dokumenti
 
 ### Aastane/Vajaduse järgi
 - **Credentials rotation:** Kui vajalik (Google keys, Discord webhook)
@@ -127,6 +133,26 @@ ATL_paevatekst/
 - [ ] **Manuaalne retry funktsioon** - kui päev jäi vahele
 - [ ] **Status dashboard** - viimaste postituste ülevaade
 - [ ] **Automated testing** - kuude vahetuse test
+
+---
+
+## 📝 7. Viimased Täiendused (Oktoober 2025)
+
+### ✅ Lahendatud Probleemid
+- **Issue #13:** `ModuleNotFoundError: No module named 'packaging'`
+  - Lisatud kriitilised implitsiitsed sõltuvused `requirements.txt` faili
+  - `google-api-core>=2.0.0` ja `packaging>=21.0`
+
+- **Issue #14:** Automaatne test/production webhook valik
+  - Workflow tuvastab automaatselt event tüübi
+  - Ei pea enam käsitsi secreti vahetama testimiseks
+  - Käsitsi "Run workflow" → testikanal
+  - Automaatne cron → tootmise kanal
+
+### 🔧 Tehnilised Detailid
+- Workflow fail: `.github/workflows/daily-meditation.yml`
+- Event tuvastamine: `github.event_name` muutuja
+- Ternary operator: `${{ condition && value_if_true || value_if_false }}`
 
 ---
 
