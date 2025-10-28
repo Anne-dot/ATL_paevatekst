@@ -71,19 +71,15 @@ def find_todays_meditation_text(document_content):
         title = f"**{meditation_lines[0]}**"
         content_lines = meditation_lines[1:]
 
-        # Remove leading empty lines from content (Drive already has blank line after title)
-        while content_lines and not content_lines[0]:
-            content_lines.pop(0)
-
         # Join content with preserved line breaks
         raw_content = '\n'.join(content_lines)
         # Keep document structure as-is, just clean up multiple newlines
         formatted_content = re.sub(r'\n\s*\n', '\n\n', raw_content)
 
         # Format with Discord markdown
-        # Structure: date, title, blank line, content
+        # Structure: date, title, content (Drive document already has blank line after title)
         formatted_date = f"📅 **{heading_line}**"
-        formatted_text = f"{formatted_date}\n{title}\n\n{formatted_content}"
+        formatted_text = f"{formatted_date}\n{title}\n{formatted_content}"
     else:
         # Fallback if no content
         formatted_date = f"📅 **{heading_line}**"
