@@ -77,8 +77,9 @@ def find_todays_meditation_text(document_content):
         formatted_content = re.sub(r'\n\s*\n', '\n\n', raw_content)
         
         # Format with Discord markdown
+        # Structure: date, title, blank line, content
         formatted_date = f"📅 **{heading_line}**"
-        formatted_text = f"{formatted_date}\n\n{title}\n\n{formatted_content}"
+        formatted_text = f"{formatted_date}\n{title}\n\n{formatted_content}"
     else:
         # Fallback if no content
         formatted_date = f"📅 **{heading_line}**"
