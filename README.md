@@ -42,14 +42,28 @@ See [SETUP.md](SETUP.md) for detailed setup instructions.
 The following secrets must be configured in GitHub repository settings → Secrets and variables → Actions:
 
 1. **`DISCORD_WEBHOOK_URL`** *(secret)*
-   - Discord webhook URL for posting messages
+   - Production Discord webhook URL for daily automated posts
    - Format: `https://discord.com/api/webhooks/...`
-   - How to get: Discord server settings → Integrations → Webhooks
+   - How to get: Discord server settings → Integrations → Webhooks → Create for production channel
+   - Used by: `schedule` event (daily cron job at 6:00 AM)
 
-2. **`GOOGLE_CREDENTIALS`** *(secret)*  
+2. **`DISCORD_WEBHOOK_TEST_URL`** *(secret)*
+   - Test Discord webhook URL for manual testing
+   - Format: `https://discord.com/api/webhooks/...`
+   - How to get: Discord server settings → Integrations → Webhooks → Create for private test channel
+   - Used by: `workflow_dispatch` event (manual "Run workflow" button)
+
+3. **`GOOGLE_CREDENTIALS`** *(secret)*
    - Google Service Account JSON credentials (entire file content)
    - Format: Complete JSON object as string
    - How to get: Google Cloud Console → Service Accounts → Create Key
+
+### Automatic Test/Production Selection
+The workflow automatically selects the correct webhook based on how it's triggered:
+- **Automatic daily run** (cron at 6:00 AM) → Uses `DISCORD_WEBHOOK_URL` (production)
+- **Manual "Run workflow"** → Uses `DISCORD_WEBHOOK_TEST_URL` (test channel)
+
+No need to manually switch secrets for testing! Just click "Run workflow" and it posts to your test channel.
 
 ### Document Configuration
 Monthly meditation document IDs are configured in `config.py` - no secrets required since document IDs are not sensitive data.
@@ -62,19 +76,27 @@ Monthly meditation document IDs are configured in `config.py` - no secrets requi
 
 **✅ Completed:**
 - Discord webhook setup and testing
-- Google Drive API connection established  
+- Google Drive API connection established
 - Complete modular Python system (5 files)
 - GitHub Actions workflow with dual authentication
 - Text parsing and daily extraction logic
 - GitHub secrets and environment variables configured
 - Service account has access to ATL meditation documents
 - Technical documentation (SETUP.md, TROUBLESHOOTING.md, HANDOVER.md)
+- Automatic test/production webhook selection (Issue #14)
+- Critical implicit dependencies fixed (Issue #13)
+- Discord markdown formatting (Issue #10)
+- Precise date extraction regex (Issue #11)
 
-**🔄 In Progress:**
-- Extended testing with production data
-- Text formatting improvements
+**🎯 Production Ready:**
+The bot is fully operational and running daily at 6:00 AM Estonian time.
 
-**Progress:** 8/10 issues completed (80%)
+**Recent Improvements (Oct 2025):**
+- Fixed `ModuleNotFoundError: No module named 'packaging'` in GitHub Actions
+- Added automatic webhook selection: test channel for manual runs, production for scheduled runs
+- No more manual secret switching required for testing
+
+**Progress:** 10/10 core issues completed (100%)
 
 ## Contributing
 
