@@ -136,7 +136,69 @@ ATL_paevatekst/
 
 ---
 
-## 📝 7. Viimased Täiendused (Oktoober 2025)
+## 📚 7. Dokumentatsiooni Haldus
+
+### Milliseid dokumente uuendada eri muudatuste puhul?
+
+#### 🔐 GitHub Secreti lisamine/muutmine
+- **README.md** → "GitHub Secrets Configuration" sektsioon
+- **SETUP.md** → Vastava sektsiooni sammud ja staatus
+- **TROUBLESHOOTING.md** → "GitHub Secrets" sektsioon
+- **HANDOVER.md** → "Secrets kontroll" sektsioon
+
+#### 🐛 Vea parandamine
+- **TROUBLESHOOTING.md** → Lisa uus vea kirjeldus ja lahendus
+- **README.md** → Uuenda "Recent Improvements" või "Current Status"
+- **SETUP.md** → Kui mõjutab seadistamist, uuenda vastavat sektsiooni
+
+#### ⚙️ Workflow faili muutmine
+- **README.md** → "Automatic Test/Production Selection" või vastav sektsioon
+- **SETUP.md** → "GitHub Actions Seadistamine" sektsioon
+- **HANDOVER.md** → "Tehnilised Detailid" või "Viimased Täiendused"
+
+#### 📦 requirements.txt muutmine
+- **SETUP.md** → "Python Süsteemi Seadistamine" → "Vajalikud paketid"
+- **README.md** → Kui oluline muudatus, lisa "Recent Improvements"
+- **TROUBLESHOOTING.md** → Kui lahendab vea, lisa "Python sõltuvuste vead"
+
+#### 🔧 Koodi struktuur/arhitektuur
+- **README.md** → "Chosen Architecture" või "Features"
+- **SETUP.md** → "Moodulite ülevaade"
+- **HANDOVER.md** → "Failide Struktuur" ja "Süsteemi Ülevaade"
+
+#### 🎯 Projekti staatus/milestone
+- **README.md** → "Current Status" ja "Progress"
+- **SETUP.md** → "Projekti Olukord" sektsioon
+- **HANDOVER.md** → "Viimased Täiendused"
+
+#### 📅 Discord/Google Drive konfiguratsioon
+- **README.md** → "GitHub Secrets Configuration"
+- **SETUP.md** → "Discord Webhook" või "Google Drive API" sektsioon
+- **HANDOVER.md** → "Discord Ligipääs" või "Google Drive Dokumendid"
+
+### 📋 Dokumentatsioonide Ülevaade
+
+| Dokument | Peamine Eesmärk | Sihtgrupp |
+|----------|----------------|-----------|
+| **README.md** | Projekti ülevaade, kiire algus | Kõik kasutajad |
+| **SETUP.md** | Samm-sammult seadistamine | Uued arendajad |
+| **TROUBLESHOOTING.md** | Veatõrje ja lahendused | Admin/tugi |
+| **HANDOVER.md** | Projekti üleandmine | Projekti hoidja |
+| **CLAUDE.md** | AI koostöö juhised | Claude AI |
+| **AI_COLLABORATION_GUIDE.md** | Tööstiil ja protsessid | Claude AI |
+
+### ✅ Dokumentatsiooni Uuendamise Kontroll-list
+
+Kui teed projekti muudatuse:
+- [ ] Tuvasta muudatuse tüüp (üleval)
+- [ ] Kontrolli, millised dokumendid vajavad uuendamist
+- [ ] Uuenda kõik asjakohased dokumendid **ühes commitis**
+- [ ] Kontrolli, et commit message mainib kõiki muudetud dokumente
+- [ ] Vaata üle, et info on järjepidev kõigis dokumentides
+
+---
+
+## 📝 8. Viimased Täiendused (Oktoober 2025)
 
 ### ✅ Lahendatud Probleemid
 - **Issue #13:** `ModuleNotFoundError: No module named 'packaging'`
