@@ -14,10 +14,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
@@ -33,3 +33,16 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       run: |
         python main.py
+
+    - name: Keep repository alive
+      if: github.event_name == 'schedule'
+      run: |
+        LAST_COMMIT_DATE=$(git log -1 --format=%ct)
+        CURRENT_DATE=$(date +%s)
+        DAYS_SINCE=$((($CURRENT_DATE - $LAST_COMMIT_DATE) / 86400))
+        if [ $DAYS_SINCE -gt 50 ]; then
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+        git commit --allow-empty -m "chore: keep-alive to prevent workflow disabling"
+        git push
+        fi
