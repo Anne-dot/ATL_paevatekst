@@ -46,6 +46,14 @@ MONTHLY_DOC_IDS = {
     12: "19HPSVWEpWpjmBd8C3QVHkcq7P9wjf40mfWYDqo2qbAE", # detsember
 }
 
+# Estonian month names for date heading patterns
+# Single source of truth - used by date_utils.py for both start and stop patterns
+MONTH_NAMES = {
+    1: "jaanuar", 2: "veebruar", 3: "märts", 4: "aprill",
+    5: "mai", 6: "juuni", 7: "juuli", 8: "august",
+    9: "september", 10: "oktoober", 11: "november", 12: "detsember",
+}
+
 # =============================================================================
 # DATE AND TIME SETTINGS
 # =============================================================================

@@ -9,17 +9,18 @@ Usage:
 """
 
 import re
-from config import get_current_date_info
+from config import get_current_date_info, MONTH_NAMES
 
 def create_heading_pattern_for_today():
-    """Create regex pattern to find today's heading in document"""
+    """Create regex pattern to find today's heading: 'N. kuunimi'"""
     date_info = get_current_date_info()
     current_day = date_info['day']
-    
-    # Pattern matches: "## 24." or "## 24 " (with optional space/period)
-    pattern = rf"^{current_day}[\.\s]"
-    print(f"🔍 Looking for heading pattern: {current_day}.")
-    
+    current_month_name = MONTH_NAMES[date_info['month']]
+
+    # Strict match: day (with optional leading zero) + period + optional space + current month name
+    pattern = rf"^0?{current_day}\.\s*{current_month_name}\b"
+    print(f"🔍 Looking for heading pattern: {current_day}. {current_month_name}")
+
     return pattern
 
 def find_todays_meditation_text(document_content):
@@ -47,8 +48,9 @@ def find_todays_meditation_text(document_content):
     for i in range(start_line + 1, len(lines)):
         line = lines[i].strip()
         
-        # Stop if we hit another date heading (day + month name)
-        date_heading_pattern = r"^\d{1,2}\.\s*(?:jaanuar|veebruar|märts|aprill|mai|juuni|juuli|august|september|oktoober|november|detsember)"
+        # Stop if we hit another date heading (day + any month name)
+        all_months = "|".join(MONTH_NAMES.values())
+        date_heading_pattern = rf"^\d{{1,2}}\.\s*(?:{all_months})\b"
         if re.match(date_heading_pattern, line, re.IGNORECASE):
             print(f"📄 Found next date heading at line {i + 1}, stopping collection")
             break
