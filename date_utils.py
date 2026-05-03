@@ -32,7 +32,7 @@ def find_todays_meditation_text(document_content):
     start_line = None
     heading_line = None
     for i, line in enumerate(lines):
-        if re.match(heading_pattern, line.strip()):
+        if re.match(heading_pattern, line.strip(), re.IGNORECASE):
             start_line = i
             heading_line = line.strip()
             print(f"✅ Found today's heading at line {i + 1}: {heading_line}")
